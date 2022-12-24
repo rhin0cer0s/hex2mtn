@@ -58,9 +58,6 @@ if "__main__" == __name__:
         tmpColor = Color("unknown_{}".format(idx))
         tmpColor.from_hex(inputHexColorCode)
 
-        print()
-        print("# {} - {} - {}".format(tmpColor.name, tmpColor.hex(), tmpColor.rgb()))
-
         palette.add(tmpColor)
 
     palette.find_similar_colors()

@@ -23,7 +23,7 @@ class ColorPalette() :
     """
     def __init__(self, name : str = "unamedColorPalette") :
         self.name = name
-        self.colors = []
+        self.colors = {}
         self.vendors = []
         self.square_size = 150
 
