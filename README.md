@@ -14,6 +14,10 @@ TODO :
 	* prendre en compte plusieurs productline
 
 # Changelog :
+
+- 2022/12/24 :
+	- Version 0.1
+
 - 2022/04/24 :
 	- create git repository
 	- add base files :
