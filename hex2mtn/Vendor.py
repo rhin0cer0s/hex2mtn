@@ -2,6 +2,7 @@
 import json
 import logging
 import sys
+import bisect
 
 from hex2mtn.Color import Color
 from hex2mtn.Color import ColorJsonEncoder
@@ -67,22 +68,16 @@ class Vendor() :
             return dict
         raise ValueError()
 
-    def similar_colors(self, color : Color) -> list :
+    def similar_colors(self, color : Color, nb_similar_colors=1) -> dict :
         similarColors = {}
 
         for productLineName, vendorColors in self.data.items() :
-            colorDifference = sys.maxsize
-            closestColors = []
-
+            distances = []
             for vendorColor in vendorColors :
-                tmpColorDifference = color.distance(vendorColor)
-                if tmpColorDifference < colorDifference :
-                    colorDifference = tmpColorDifference
-                    closestColors = [vendorColor]
-                elif tmpColorDifference == colorDifference :
-                    closestColors.append(vendorColor)
+                distances.append((color.distance(vendorColor), vendorColor.name))
 
-            similarColors.update([(productLineName, closestColors)])
+            distances.sort(key=lambda x: x[0])
+            similarColors[productLineName] = distances[:nb_similar_colors]
 
         return similarColors
 
