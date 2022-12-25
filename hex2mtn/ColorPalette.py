@@ -40,11 +40,11 @@ class ColorPalette() :
         for color in colors :
             self.add(color)
 
-    def find_similar_colors (self):
+    def find_similar_colors (self, nb_similar_colors=1):
         for colorName in self.colors.keys() :
             for vendor in self.vendors :
                 color = self.colors[colorName]['color']
-                self.colors[colorName]["similar"][vendor.name] = vendor.similar_colors(color)
+                self.colors[colorName]["similar"][vendor.name] = vendor.similar_colors(color, nb_similar_colors)
 
     def pretty_print(self) :
         print(f"# {self.name}")
@@ -54,9 +54,9 @@ class ColorPalette() :
             for vendor,similarColors in self.colors[colorName]['similar'].items() :
                 print(f"### {vendor}")
                 for productLine, similarColors in similarColors.items() :
-                    print(f"\t{productLine} : ", end='')
-                    for productName in similarColors :
-                        print(f"{productName}", end='')
+                    print(f"\t{productLine} : ")
+                    for (distance,productName) in similarColors :
+                        print(f"\t\t[{distance:06}] {productName}")
                     print()
 
     # def compute_image_size(self, similarColors) :
