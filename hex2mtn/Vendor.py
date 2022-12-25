@@ -68,6 +68,16 @@ class Vendor() :
             return dict
         raise ValueError()
 
+    """
+    This functions goes through each colors from current `Vendor`, compute distance from the given `color` and returns only `nb_similar_colors` suggestions.
+    `vendorColor` are sorted by `ProductLine`, each `ProductLine` gets its suggestions.
+    :param color: reference color
+    :param nb_similar_colors: number of color suggestions to return
+    :return: {
+        [productLine_0] : [(distance_00, color_00), (distance_01, color_01), ... ]
+        [productLine_1] : [(distance_10, color_10), (distance_11, color_11), ... ]
+        ...
+    """
     def similar_colors(self, color : Color, nb_similar_colors=1) -> dict :
         similarColors = {}
 
