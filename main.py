@@ -16,7 +16,7 @@ if "__main__" == __name__:
     parser.add_argument('--version', action='version', version='%(prog)s {}'.format(SCRIPT_VERSION))
     parser.add_argument('colors', action='store', nargs='+', metavar='color', type=str, help='color (as hexadecimal value)')
     parser.add_argument('--sync', action='store_true', dest='flagSync', default=False, help='refresh information from Montana website')
-    parser.add_argument('--no-save', action='store_false', dest='flagNoSave', default=False, help='')
+    parser.add_argument('--no-save', action='store_false', dest='flagDoNotSave', default=True, help='')
     parser.add_argument('--data-file', nargs=1, action='store', type=str, dest='dataFilePath', default='./montana_data.json')
     parser.add_argument('--rgb', action='store_true', dest='flagRGB', default=False, help='use RGB values instead of hexadecimal')
     parser.add_argument('--verbose', '--debug', action='store_true', dest='flagDebug', default=False, help='Enable log tracing')
@@ -41,7 +41,7 @@ if "__main__" == __name__:
         vendorData.download_data()
 
         # Do not save if --no-save is specified
-        if not args.flagNoSave :
+        if args.flagDoNotSave :
             vendorData.save_data()
     else :
         try :
