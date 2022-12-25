@@ -60,6 +60,6 @@ if "__main__" == __name__:
 
         palette.add(tmpColor)
 
-    palette.find_similar_colors()
+    palette.find_similar_colors(nb_similar_colors=3)
     palette.pretty_print()
     ## palette.color_chart(f"output_{vendorData.name}.jpg")
