@@ -12,8 +12,12 @@ TODO :
 	* palette name
 - colorPalette :
 	* prendre en compte plusieurs productline
+	* optimisation : `find_similar_colors()` function computes every distances, sort them and keep only the N first.
 
 # Changelog :
+
+- 2022/12/25 :
+	- add `nb_similar_colors` parameter to several function. The script now outputs `nb_similar_colors` colors suggestion.
 
 - 2022/12/24 :
 	- Version 0.1
