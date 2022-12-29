@@ -1,6 +1,7 @@
 #! /usr/bin/env/python3
 import argparse
 import logging
+from hex2mtn.ColorChart import ColorChart
 from hex2mtn.ColorPalette import ColorPalette
 from hex2mtn.MolotowVendor import Molotow
 from hex2mtn.MontanaVendor import Montana
@@ -50,7 +51,7 @@ if "__main__" == __name__:
             logging.debug("[!] Error while opening local data. Did you run with the --sync argument first ?")
             raise Exception from e
 
-    palette = ColorPalette()
+    palette = ColorPalette(nb_similar_colors=3)
     palette.vendors.append(vendorData)
 
     for idx, inputHexColorCode in enumerate(args.colors) :
@@ -60,6 +61,9 @@ if "__main__" == __name__:
 
         palette.add(tmpColor)
 
-    palette.find_similar_colors(nb_similar_colors=3)
+    palette.find_similar_colors()
     palette.pretty_print()
+
+    colorChart = ColorChart(palette)
+    colorChart.draw("aaa")
     ## palette.color_chart(f"output_{vendorData.name}.jpg")
