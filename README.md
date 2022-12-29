@@ -16,6 +16,9 @@ TODO :
 
 # Changelog :
 
+- 2022/12/29 :
+	- create `ColorChart` class to save output as an image
+
 - 2022/12/25 :
 	- add `nb_similar_colors` parameter to several function. The script now outputs `nb_similar_colors` colors suggestion.
 
