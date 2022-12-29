@@ -84,7 +84,7 @@ class Vendor() :
         for productLineName, vendorColors in self.data.items() :
             distances = []
             for vendorColor in vendorColors :
-                distances.append((color.distance(vendorColor), vendorColor.name))
+                distances.append((color.distance(vendorColor), vendorColor))
 
             distances.sort(key=lambda x: x[0])
             similarColors[productLineName] = distances[:nb_similar_colors]
