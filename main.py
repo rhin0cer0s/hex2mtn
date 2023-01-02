@@ -7,7 +7,7 @@ from hex2mtn.MolotowVendor import Molotow
 from hex2mtn.MontanaVendor import Montana
 from hex2mtn.Color import Color
 
-SCRIPT_VERSION = 0.1
+SCRIPT_VERSION = 0.2
 WORKING_FOLDER = "./"
 
 if "__main__" == __name__:
