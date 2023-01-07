@@ -1,7 +1,8 @@
 TODO :
 - ini config file for vendor
-    * base path for datafile
-    * color square size
+	* base path for datafile
+	* color square size
+	* command line options must overload configuration file
 - proxy config
 - add argument productline
 - create a visual test pipeline : random HEX generator and similar proposition
@@ -15,6 +16,9 @@ TODO :
 	* optimisation : `find_similar_colors()` function computes every distances, sort them and keep only the N first.
 
 # Changelog :
+
+- 2022/01/07 :
+	- first configuration file capabilities round
 
 - 2022/12/29 :
 	- create `ColorChart` class to save output as an image
